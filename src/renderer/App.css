@@ -1,0 +1,141 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+ @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+
+ body {
+  position: relative;
+  color: white;
+  height: 100vh;
+  
+  font-family: 'DM Sans', sans-serif;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  appearance: none;
+  font-size: 1.3rem;
+  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
+    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+  transition: all ease-in 0.1s;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+
+a {
+  text-decoration: none;
+  height: fit-content;
+  width: fit-content;
+  margin: 10px;
+}
+
+a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.Hello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+
+.Total {
+  display: grid; 
+  text-align: center; 
+  justify-items: center; 
+  align-items: center; 
+  height: 100vh; 
+  padding-top:2px;
+  margin-top: 2px;
+}
+
+h1 {
+  color: black;
+}
+.to-begin {
+  margin-bottom: 3px;
+}
+.to-end {
+  text-align: left;
+  margin-top: 0px;
+  margin-bottom:10px
+}
+
+ul {
+  color: black;
+  text-align: left;
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-items: left;
+  padding-left:20px;
+}
+
+li {
+  margin: 10px;
+}
+
+.first{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  
+}
+
+.parent-1 {
+  padding-right: 50px;
+  /* display: grid; 
+  /* justify-items: center;  */
+  /* align-items: center;  */
+}
+
+.child-2 {
+  display: grid; 
+  justify-items: right; 
+  align-items: center; 
+  padding-left: 50px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+
+.parent-2 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.image1 {
+  position: relative;
+  top: 0;
+  border-radius: 0.5rem; 
+  left: 0;
+}
+.image2 {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 320px;
+  width: 390px;
+background-color:gray;
+opacity: 0.45;
+border-radius: 0.5rem; 
+}
