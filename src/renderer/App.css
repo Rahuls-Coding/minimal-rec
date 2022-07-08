@@ -139,3 +139,12 @@ background-color:gray;
 opacity: 0.45;
 border-radius: 0.5rem; 
 }
+
+.icons {
+  display: flex; 
+  align-items: center; 
+}
+
+.icons-1 {
+  padding-right: 10px;
+}
