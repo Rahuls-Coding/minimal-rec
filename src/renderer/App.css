@@ -157,7 +157,15 @@ border-radius: 0.5rem;
 
 }
 .text {
-  color: black
+  color: black;
+  padding-right: 10px;
+  width: 20vh;
+}
+
+.texty {
+  color: black;
+  padding-left: 5px;
+  width: 20vh;
 }
 
 .btn-1 {
@@ -170,6 +178,38 @@ border-radius: 0.5rem;
 
 .Area {
   width: 70vh;
-  justify-items: center;
-  align-content: center;
+  display: flex;
+  justify-content: center;
+  /* align-content: center; */
+  align-items: center;
+}
+
+.element {
+  -moz-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  color: black;
+}
+
+.highlight {
+  color: red;
+  -webkit-animation: fadeinout 4s linear forwards infinite;
+  animation: fadeinout 4s linear forwards infinite;
+}
+
+@-webkit-keyframes fadeinout {
+0%,100% { opacity: 0.2; }
+50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+0%,100% { opacity: 0.2; }
+50% { opacity: 1; }
+}
+
+.record {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
