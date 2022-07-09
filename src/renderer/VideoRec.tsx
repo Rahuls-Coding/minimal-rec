@@ -1,13 +1,14 @@
 import {Button, useMantineTheme, Card} from '@mantine/core';
-import {DeviceDesktop} from 'tabler-icons-react';
+import {Camera, Download} from 'tabler-icons-react';
 import { useState } from 'react';
 //@ts-ignore
 import RecordRTC, { RecordRTCPromisesHandler } from 'recordrtc'
+import { saveAs } from 'file-saver'
 //@ts-ignore
 import { Player } from 'video-react'; 
 import 'video-react/dist/video-react.css';
 
-const ScreenRec = () => {
+const VideoRec = () => {
     const theme = useMantineTheme();
     const BlinkingComponent = ({ highlighting }) => (
         <div className={`element${highlighting ? " highlight" : ""}`}>◉</div>
@@ -17,6 +18,7 @@ const ScreenRec = () => {
     const [stream, setStream] = useState<MediaStream | null>()
     const [blob, setBlob] = useState<Blob | null>()
     
+
 
     const  startRecording = async () => {
         const mediaDevices = navigator.mediaDevices
@@ -47,12 +49,17 @@ const ScreenRec = () => {
 
     }
 
+    const downloadVideo = () => {
+        if (blob) {
+            saveAs(blob, 'video.webm')
+        }
+    }
     return(
         <div className="Total">
-            <h1 className="icons"> {<DeviceDesktop size={32} color={theme.colors.blue[6]} className="icons-1" />}      Screen Recorder</h1>
-            {blob ? <Player src={window.URL.createObjectURL(blob)} sytle = {{'padding-top': '0px'}}className="player" /> : <Card color="gray" className="video-box"></Card>}
+            <h1 className="icons"> {<Camera size={32} color={theme.colors.pink[6]} className="icons-1" />}      Video Recorder</h1>
+            {blob ? <Player src={window.URL.createObjectURL(blob)} sytle = {{'padding-top': '0px'}}className="player" /> : <Card color="gray" className="video-box"> Video Hasn't Completed Recording</Card>}
             <div className="Area">
-                <Button onClick={() => startRecording()}className = "btn-1" color="blue" >Start</Button>
+                <Button onClick={() => startRecording()}className = "btn-1" color="pink" >Start</Button>
                 <div className="record"> 
                     <div className="text">
                     Current Status: 
@@ -63,12 +70,13 @@ const ScreenRec = () => {
                     </div>
                 </div>
                
-                <Button onClick = {() => stopRecording()}color="blue" className="btn-2">Stop</Button>
+                <Button onClick = {() => stopRecording()}color="pink" className="btn-2">Stop</Button>
             </div>
+            {blob ? <Button color="pink" onClick={() => downloadVideo()}><Download size={16}/> Download</Button> :null}
         </div>
 
     )
 
 }
 
-export default ScreenRec;
+export default VideoRec;

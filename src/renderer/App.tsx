@@ -4,12 +4,12 @@ import {useState} from "react"
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import { Button, Menu, useMantineTheme } from '@mantine/core';
 import { Camera, DeviceDesktop, Speakerphone, ChevronDown } from 'tabler-icons-react';
-import ScreenRec from './ScreenRec';
+import VideoRec from './VideoRec';
 import './App.css';
 
 const Hello = () => {
   const theme = useMantineTheme();
-  const [route, setRoutes] = useState("Screen")
+  const [route, setRoutes] = useState("Home")
  if (route == 'Home') {
   return (
     <div>
@@ -36,11 +36,11 @@ const Hello = () => {
         size="lg"
         
         >
-        <Menu.Item onClick={() => setRoutes("Screen")}
+        <Menu.Item 
           icon={<DeviceDesktop size={16} color={theme.colors.blue[6]} />}>
           Screen Recording
         </Menu.Item>
-        <Menu.Item
+        <Menu.Item onClick={() => setRoutes("Video")}
           icon={<Camera size={16} color={theme.colors.pink[6]} />}>
           Video Recording
         </Menu.Item>
@@ -61,8 +61,8 @@ const Hello = () => {
       
     </div>
   );
- } else if (route == "Screen") {
-  return <ScreenRec />
+ } else if (route == "Video") {
+  return <VideoRec />
  } else {
   return <div>Hello</div>
  }
