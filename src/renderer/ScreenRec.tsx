@@ -3,6 +3,9 @@ import {DeviceDesktop} from 'tabler-icons-react';
 import { useState } from 'react';
 //@ts-ignore
 import RecordRTC, { RecordRTCPromisesHandler } from 'recordrtc'
+//@ts-ignore
+import { Player } from 'video-react'; 
+import 'video-react/dist/video-react.css';
 
 const ScreenRec = () => {
     const theme = useMantineTheme();
@@ -16,16 +19,16 @@ const ScreenRec = () => {
     
 
     const  startRecording = async () => {
-            setHighlight(true);
-            const mediaDevices = navigator.mediaDevices
-            const stream: MediaStream = await mediaDevices.getUserMedia({
-                audio: true,
-                video: true
-            })
-            const recorder: RecordRTC = new RecordRTCPromisesHandler(stream, {
-                type: 'video',
-            }) 
-            await recorder.startRecording();
+        const mediaDevices = navigator.mediaDevices
+        const stream: MediaStream = await mediaDevices.getUserMedia({
+            audio: true,
+            video: true
+        })
+        const recorder: RecordRTC = new RecordRTCPromisesHandler(stream, {
+            type: 'video',
+        }) 
+        await recorder.startRecording();
+        setHighlight(true);
             setRecorder(recorder)
             setStream(stream)
       };
@@ -34,6 +37,7 @@ const ScreenRec = () => {
         if (stream) {
         setHighlight(false);
         await recorder?.stopRecording();
+        (stream as any).stop();
         const blob = await recorder?.getBlob();
         setBlob(blob);
         console.log(blob)
@@ -46,8 +50,7 @@ const ScreenRec = () => {
     return(
         <div className="Total">
             <h1 className="icons"> {<DeviceDesktop size={32} color={theme.colors.blue[6]} className="icons-1" />}      Screen Recorder</h1>
-            <Card color="gray" className="video-box"> 
-            </Card>
+            {blob ? <Player src={window.URL.createObjectURL(blob)} sytle = {{'padding-top': '0px'}}className="player" /> : <Card color="gray" className="video-box"></Card>}
             <div className="Area">
                 <Button onClick={() => startRecording()}className = "btn-1" color="blue" >Start</Button>
                 <div className="record"> 
