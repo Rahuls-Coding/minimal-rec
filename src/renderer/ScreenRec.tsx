@@ -22,15 +22,24 @@ const ScreenRec = () => {
                 audio: true,
                 video: true
             })
-            const recorder = new RecordRTCPromisesHandler(stream, {
+            const recorder: RecordRTC = new RecordRTCPromisesHandler(stream, {
                 type: 'video',
             }) 
             await recorder.startRecording();
+            setRecorder(recorder)
+            setStream(stream)
       };
 
     const stopRecording = async () => {
+        if (stream) {
         setHighlight(false);
-        await recorder.stopRecording();
+        await recorder?.stopRecording();
+        const blob = await recorder?.getBlob();
+        setBlob(blob);
+        console.log(blob)
+        setStream(null);
+        setRecorder(null);
+        }
 
     }
 
