@@ -148,3 +148,28 @@ border-radius: 0.5rem;
 .icons-1 {
   padding-right: 10px;
 }
+
+.video-box {
+  height: 50vh;
+  width: 70vh;
+  background-color: gray;
+  opacity: 0.5;
+
+}
+.text {
+  color: black
+}
+
+.btn-1 {
+  margin-right : 80px; 
+}
+
+.btn-2 {
+  margin-left: 80px;
+}
+
+.Area {
+  width: 70vh;
+  justify-items: center;
+  align-content: center;
+}

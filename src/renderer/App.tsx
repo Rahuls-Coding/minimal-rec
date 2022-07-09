@@ -63,6 +63,8 @@ const Hello = () => {
   );
  } else if (route == "Screen") {
   return <ScreenRec />
+ } else {
+  return <div>Hello</div>
  }
   
 
