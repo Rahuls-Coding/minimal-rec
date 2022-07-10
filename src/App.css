@@ -1,12 +1,6 @@
-/*
- * @NOTE: Prepend a `~` to css file paths that are in your node_modules
- *        See https://github.com/webpack-contrib/sass-loader#imports
- */
- @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
- /* @tailwind base;
- @tailwind components;
- @tailwind utilities; */
 
+ @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+ 
  body {
   position: relative;
   color: white;

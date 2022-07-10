@@ -1,17 +1,15 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable import/order */
 import {useState} from "react"
-import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import { Button, Menu, useMantineTheme } from '@mantine/core';
 import { Camera, DeviceDesktop, Speakerphone, ChevronDown } from 'tabler-icons-react';
 import ScreenRec from './ScreenRec';
 import VideoRec from './VideoRec';
+import AudioRec from './AudioRec';
 import './App.css';
 
-const Hello = () => {
+const App = () => {
   const theme = useMantineTheme();
   const [route, setRoutes] = useState("Home")
- if (route == 'Home') {
+ if (route === 'Home') {
   return (
     <div>
       <div className="Total">
@@ -45,8 +43,8 @@ const Hello = () => {
           icon={<Camera size={16} color={theme.colors.pink[6]} />}>
           Video Recording
         </Menu.Item>
-        <Menu.Item 
-          icon={<Speakerphone size={16} color={theme.colors.cyan[6]} />}>
+        <Menu.Item onClick={() => setRoutes("Audio")}
+          icon={<Speakerphone size={16} color={theme.colors.green[6]} />}>
           Audio Recording
         </Menu.Item>
             </Menu>
@@ -62,21 +60,15 @@ const Hello = () => {
       
     </div>
   );
- } else if (route == "Video") {
+ } else if (route === "Video") {
   return <VideoRec />
- } else {
+ } else if (route === "Screen") {
   return <ScreenRec />
+ } else {
+  return <AudioRec />
  }
   
 
 };
 
-export default function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Hello />} />
-      </Routes>
-    </Router>
-  );
-}
+export default App;
