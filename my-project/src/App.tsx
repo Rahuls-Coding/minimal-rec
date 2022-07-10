@@ -1,14 +1,11 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable import/order */
 import {useState} from "react"
-import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import { Button, Menu, useMantineTheme } from '@mantine/core';
 import { Camera, DeviceDesktop, Speakerphone, ChevronDown } from 'tabler-icons-react';
 import ScreenRec from './ScreenRec';
 import VideoRec from './VideoRec';
 import './App.css';
 
-const Hello = () => {
+const App = () => {
   const theme = useMantineTheme();
   const [route, setRoutes] = useState("Home")
  if (route == 'Home') {
@@ -71,12 +68,4 @@ const Hello = () => {
 
 };
 
-export default function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Hello />} />
-      </Routes>
-    </Router>
-  );
-}
+export default App;
