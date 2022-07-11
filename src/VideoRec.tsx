@@ -1,5 +1,5 @@
-import {Button, useMantineTheme, Card} from '@mantine/core';
-import {Camera, Download} from 'tabler-icons-react';
+import {Button, useMantineTheme, Card, Alert} from '@mantine/core';
+import {Camera, Download, AlertCircle} from 'tabler-icons-react';
 import { useState } from 'react';
 //@ts-ignore
 import RecordRTC, { RecordRTCPromisesHandler } from 'recordrtc'
@@ -76,6 +76,9 @@ const VideoRec = () => {
                 <Button onClick = {() => stopRecording()}color="pink" className="btn-2">Stop</Button>
             </div>
             {blob ? <Button color="pink" onClick={() => downloadVideo()}><Download size={16}/> Download</Button> :null}
+            <Alert icon={<AlertCircle size={16} />} title=" To go to back to the homescreen, try refreshing!" color="pink">
+               
+            </Alert>
         </div>
 
     )
