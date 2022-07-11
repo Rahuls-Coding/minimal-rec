@@ -59,10 +59,10 @@ const VideoRec = () => {
     }
     return(
         <div className="Total">
-            <h1 className="icons"> {<Camera size={32} color={theme.colors.pink[6]} className="icons-1" />}      Video Recorder</h1>
+            <h1 className="icons"> {<Camera size={32} color={theme.colors.red[6]} className="icons-1" />}      Video Recorder</h1>
             {blob ? <Player src={window.URL.createObjectURL(blob)} sytle = {{'padding-top': '0px'}}className="player" /> : <Card color="gray" className="video-box"> Video Hasn't Completed Recording</Card>}
             <div className="Area">
-                <Button onClick={() => startRecording()}className = "btn-1" color="pink" >Start</Button>
+                <Button onClick={() => startRecording()}className = "btn-1" color="red" >Start</Button>
                 <div className="record"> 
                     <div className="text">
                     Current Status: 
@@ -73,10 +73,10 @@ const VideoRec = () => {
                     </div>
                 </div>
                
-                <Button onClick = {() => stopRecording()}color="pink" className="btn-2">Stop</Button>
+                <Button onClick = {() => stopRecording()}color="red" className="btn-2">Stop</Button>
             </div>
-            {blob ? <Button color="pink" onClick={() => downloadVideo()}><Download size={16}/> Download</Button> :null}
-            <Alert icon={<AlertCircle size={16} />} title=" To go to back to the homescreen, try refreshing!" color="pink">
+            {blob ? <Button color="red" onClick={() => downloadVideo()}><Download size={16}/> Download</Button> :null}
+            <Alert icon={<AlertCircle size={16} />} title=" To go to back to the homescreen, try refreshing!" color="red">
                
             </Alert>
         </div>

@@ -76,7 +76,7 @@ const AudioRec = () => {
                 <Button onClick = {() => stopRecording()}color="green" className="btn-2">Stop</Button>
             </div>
             {blob ? <Button color="green" onClick={() => downloadVideo()}><Download size={16}/> Download</Button> :null}
-            <Alert icon={<AlertCircle size={16} />} title=" To go to back to the homescreen, try refreshing!" color="blue">
+            <Alert icon={<AlertCircle size={16} />} title=" To go to back to the homescreen, try refreshing!" color="green">
                
             </Alert>
         </div>

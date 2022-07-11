@@ -40,7 +40,7 @@ const App = () => {
           Screen Recording
         </Menu.Item>
         <Menu.Item onClick={() => setRoutes("Video")}
-          icon={<Camera size={16} color={theme.colors.pink[6]} />}>
+          icon={<Camera size={16} color={theme.colors.red[6]} />}>
           Video Recording
         </Menu.Item>
         <Menu.Item onClick={() => setRoutes("Audio")}
